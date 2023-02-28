@@ -1,0 +1,40 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  place-items: center;
+  padding: 200px 0;
+}
+
+.grid-even-columns {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 40em) {
+  .grid-even-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (min-width: 60em) {
+  .grid-even-columns {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
