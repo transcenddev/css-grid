@@ -28,6 +28,7 @@ body {
 
 @media (min-width: 40em) {
   .grid-even-columns {
+    /* grid-template-columns: 1fr 1fr; */
     grid-template-columns: repeat(2, 1fr);
   }
 }
