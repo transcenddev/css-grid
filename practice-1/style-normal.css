@@ -156,7 +156,6 @@ h3 {
   margin-inline: auto;
 }
 
-
 @media (min-width: 30em) {
   .grid-col-span-2 {
     grid-column: span 2;
