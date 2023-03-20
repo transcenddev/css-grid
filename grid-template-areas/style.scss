@@ -1,0 +1,110 @@
+// Google font
+@import url("https://fonts.googleapis.com/css?family=Merriweather:300,900|Six+Caps");
+
+// ===== Variables ===== //
+
+// Fonts stuff
+$six-caps: "Six Caps", sans-serif;
+$merriweather: "Merriweather", serif;
+
+$ff-base: $merriweather;
+$ff-alt: $six-caps;
+
+$fs-base: 1rem;
+$fs-h1: 3.75rem;
+$fs-h2: 2.875rem;
+$fs-h3: 2.25rem;
+$fs-xl: 6rem;
+
+// Colours
+$black: #252525;
+$yellow: #e9d20f;
+$light-gray: #c2c2c2;
+$dark-gray: #e8e8e8;
+$white: #fff;
+
+// ===== Mixins ===== //
+
+@mixin font-base($font-size: $fs-base, $font-weight: 300, $color: $black) {
+  font: {
+    family: $ff-base;
+    size: $font-size;
+    weight: $font-weight;
+  }
+
+  color: $color;
+}
+
+@mixin font-alt($font-size: $fs-base, $color: $black) {
+  font: {
+    family: $ff-alt;
+    size: $font-size;
+  }
+
+  color: $color;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+
+// ===== Styles ===== //
+
+body {
+  @include font-base;
+  line-height: 1.6;
+
+  display: grid;
+  grid-template-rows: 10em 50vh auto 10em;
+  grid-template-columns: 1fr 5fr 2fr 1fr;
+  grid-template-areas: 
+    "header header header header"
+    "hero hero hero hero"
+    ". main aside ."
+    "footer footer footer footer";
+  grid-column-gap: 3em;
+  margin: 0;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header, .footer {
+  background: $black;
+  color: $yellow;
+}
+.header-title .footer-title {
+  @include font-alt($color: $yellow, $font-size: $fs-h2 );
+}
+
+
+// Header
+.header {
+  grid-area: header;
+}
+// Hero
+.hero {
+  grid-area: hero;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/308367/gridarea-hero-bg.jpg);
+  flex-direction: column;
+}
+.hero-title, .hero-subtitle {
+  margin: 0;
+}
+.hero-title {
+  @include font-alt($color: $black, $font-size: $fs-xl );
+}
+.hero-subtitle {
+  @include font-base($color: $white, $font-size: $fs-h2);
+}
+
+.main {
+  grid-area: main;
+}
+.aside {
+  grid-area: aside;
+}
+.footer {
+  grid-area: footer;
+}
